@@ -1,0 +1,34 @@
+
+# get started fast.
+
+[general]
+accounts = Retresco, Private
+pythonfile=~/.mutt/offlineimap.py
+
+[Account Retresco]
+localrepository = Local
+remoterepository = Remote
+
+[Account Private]
+localrepository = LocalPrivate
+remoterepository = RemotePrivate
+
+[Repository LocalPrivate]
+type = Maildir
+localfolders = ~/Mail/private
+
+[Repository Local]
+type = Maildir
+localfolders = ~/Mail/retresco
+
+[Repository RemotePrivate]
+type = IMAP
+remotehost = tarnbarford.net
+remoteuser = tarn
+remotepasseval = get_keychain_pass(account="tarn@tarnbarford.net", server="tarnbarford.net")
+
+[Repository Remote]
+type = IMAP
+remotehost = imap.1und1.de
+remoteuser = tarn.barford@retresco.de
+remotepasseval = get_keychain_pass(account="tarn.barford@retresco.de", server="imap.1und1.de")
