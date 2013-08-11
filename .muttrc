@@ -1,0 +1,11 @@
+set mbox_type = Maildir
+set folder = ~/Mail; set record="+sent"; set mbox="+mbox"; set postponed="+postponed"
+set spoolfile       = "+retresco/INBOX"
+
+mailboxes +retresco/INBOX
+
+folder-hook retresco/* source ~/.mutt/retresco.muttrc
+folder-hook private/* source ~/.mutt/private.muttrc
+
+source ~/.mutt/colours.muttrc
+source ~/.mutt/crypto.muttrc
