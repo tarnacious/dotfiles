@@ -7,3 +7,5 @@
 	email = tarn@tarnbarford.net
 [push]
 	default = simple
+[core]
+	excludesfile = /Users/tarn/.gitignore.global
