@@ -45,6 +45,16 @@ set clipboard=unnamed
 
 let g:slime_target = "tmux"
 
+"Strip trailing white space
+fun! <SID>StripTrailingWhitespaces()
+    let l = line(".")
+    let c = col(".")
+    %s/\s\+$//e
+    call cursor(l, c)
+endfun
+
+autocmd FileType c,cpp,java,php,ruby,python autocmd BufWritePre <buffer> :call <SID>StripTrailingWhitespaces()
+
 " Vundle
 filetype off    
 set rtp+=~/.vim/bundle/vundle/
@@ -55,6 +65,7 @@ Bundle 'wincent/Command-T'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'kchmck/vim-coffee-script'
 filetype plugin indent on
+
 
 set background=dark
 colorscheme solarized
