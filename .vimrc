@@ -64,6 +64,7 @@ Bundle 'scrooloose/nerdtree'
 Bundle 'wincent/Command-T'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'kchmck/vim-coffee-script'
+Bundle 'klen/python-mode'
 filetype plugin indent on
 
 
