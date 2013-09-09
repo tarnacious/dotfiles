@@ -70,3 +70,5 @@ filetype plugin indent on
 
 set background=dark
 colorscheme solarized
+
+let NERDTreeIgnore = ['\.pyc$', '\.so$', '\.swp$']
