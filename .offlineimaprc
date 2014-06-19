@@ -1,8 +1,5 @@
-
-# get started fast.
-
 [general]
-accounts = Retresco, Private
+accounts = Retresco, Private, Gmail
 pythonfile=~/.mutt/offlineimap.py
 
 [Account Retresco]
@@ -13,6 +10,10 @@ remoterepository = Remote
 localrepository = LocalPrivate
 remoterepository = RemotePrivate
 
+[Account Gmail]
+localrepository = Gmail-Local
+remoterepository = Gmail-Remote
+
 [Repository LocalPrivate]
 type = Maildir
 localfolders = ~/Mail/private
@@ -20,6 +21,10 @@ localfolders = ~/Mail/private
 [Repository Local]
 type = Maildir
 localfolders = ~/Mail/retresco
+
+[Repository Gmail-Local]
+type = Maildir
+localfolders = ~/Mail/gmail
 
 [Repository RemotePrivate]
 type = IMAP
@@ -32,3 +37,15 @@ type = IMAP
 remotehost = imap.1und1.de
 remoteuser = tarn.barford@retresco.de
 remotepasseval = get_keychain_pass(account="tarn.barford@retresco.de", server="imap.1und1.de")
+
+[Repository Gmail-Remote]
+cert_fingerprint = 89091347184d41768bfc0da9fad94bfe882dd358
+folderfilter = filter_remote_gmail
+maxconnections = 1
+nametrans = trans_remote_gmail
+realdelete = no
+remotepasseval = get_keychain_pass(account="tarn.barford@gmail.com", server="imap.gmail.com")
+remoteuser = tarn.barford@gmail.com
+ssl = yes
+type = Gmail
+

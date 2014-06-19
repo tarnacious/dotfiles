@@ -1,5 +1,6 @@
 [alias]
 	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+    recent-branches = for-each-ref --sort=-committerdate refs/heads/
 [color]
 	ui = true
 [user]

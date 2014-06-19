@@ -1,5 +1,29 @@
 #!/usr/bin/python
 import re, subprocess
+
+local = {
+  'all':       '[Gmail]/All Mail',
+  'drafts':    '[Gmail]/Drafts',
+  'important': '[Gmail]/Important',
+  'sent':      '[Gmail]/Sent Mail',
+  'spam':      '[Gmail]/Spam',
+  'starred':   '[Gmail]/Starred',
+  'trash':     '[Gmail]/Trash'
+}
+
+remote = { v:k for k, v in local.items() }
+filters = [local[key] for key in ['important', 'spam', 'trash']]
+
+def filter_remote_gmail(folder):
+  return folder not in filters
+
+
+def trans_local_gmail(folder):
+  return local.get(folder, folder)
+
+def trans_remote_gmail(folder):
+  return remote.get(folder, folder)
+
 def get_keychain_pass(account=None, server=None):
     params = {
         'security': '/usr/bin/security',

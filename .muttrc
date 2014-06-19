@@ -1,11 +1,55 @@
 set mbox_type = Maildir
 set folder = ~/Mail; set record="+sent"; set mbox="+mbox"; set postponed="+postponed"
 set spoolfile       = "+retresco/INBOX"
+set mailcap_path     = ~/.mutt/mailcap 
 
-mailboxes +retresco/INBOX
+set sidebar_visible = yes
+set sidebar_width = 30 # width of sidebar
+set sidebar_delim = '|' # sidebar delimiter
+color sidebar_new yellow default
+
+mailboxes +retresco/INBOX \
+          +retresco/sent \
+          +retresco/drafts \
+          +private/INBOX \
+          +private/sent \
+          +private/drafts \
+          +gmail/INBOX \
+          +gmail/sent \
+          +gmail/all \
+
+# auto_view text/html
+macro index,pager ,r ":unset wait_key; set pipe_decode\n|mutt_add_reminder\n:set wait_key; unset pipe_decode\n" "record a reminder"
+
+bind attach <return> view-mailcap
 
 folder-hook retresco/* source ~/.mutt/retresco.muttrc
 folder-hook private/* source ~/.mutt/private.muttrc
 
+set sort = threads
+set sort_aux = reverse-last-date-received 
+
+macro index O "<shell-escape>offlineimap<enter>"           "run offlineimap to sync all mail"
+
+macro index \Cr "T~U<enter><tag-prefix><clear-flag>N<untag-pattern>.<enter>" "mark all messages as read"
+bind index,pager <down>   sidebar-next
+bind index,pager <up>     sidebar-prev
+bind index,pager <right>  sidebar-open
+macro index,pager <left> '<enter-command>toggle sidebar_visible<enter>'
+
+bind pager k  previous-line
+bind pager j  next-line
+
+bind index gg       first-entry
+bind index G        last-entry
+bind index R        group-reply
+bind index <tab>    sync-mailbox
+bind index <space>  collapse-thread
+
 source ~/.mutt/colours.muttrc
 source ~/.mutt/crypto.muttrc
+
+## Abook
+set query_command= "abook --mutt-query '%s'"
+macro index,pager  a "<pipe-message>abook --add-email-quiet<return>" "Add this sender to Abook"
+bind editor        <Tab> complete-query
