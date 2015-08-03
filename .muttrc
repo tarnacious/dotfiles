@@ -1,18 +1,23 @@
 set mbox_type = Maildir
 set folder = ~/Mail; set record="+sent"; set mbox="+mbox"; set postponed="+postponed"
-set spoolfile       = "+retresco/INBOX"
-set mailcap_path     = ~/.mutt/mailcap 
+set spoolfile       = "+private/INBOX"
+set mailcap_path     = ~/.mailcap 
 
 set sidebar_visible = yes
 set sidebar_width = 30 # width of sidebar
 set sidebar_delim = '|' # sidebar delimiter
 color sidebar_new yellow default
 
-mailboxes +retresco/INBOX \
-          +retresco/sent \
-          +retresco/drafts \
-          +private/INBOX \
+mailboxes +private/INBOX \
           +private/sent \
+          +private/archive \
+          +private/drafts \
+          +retresco/INBOX \
+          +retresco/sent \
+          +retresco/archive \
+          +retresco/drafts \
+          +private/sent \
+          +private/archive \
           +private/drafts \
           +gmail/INBOX \
           +gmail/sent \

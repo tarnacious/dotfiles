@@ -18,7 +18,8 @@ PS1="${debian_chroot:+($debian_chroot)}\[\033[01;36m\]\u@\h\[\033[00m\]:\[\033[0
 
 function mountAndroid { hdiutil attach ~/projects/android/android.dmg.sparseimage -mountpoint /Volumes/android; }
 
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+#[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 
 
 export JAVA_HOME=$(/usr/libexec/java_home)
+export SHIFT_CONFIG_BASE=/Users/tarn/projects/etc

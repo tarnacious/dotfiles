@@ -27,6 +27,7 @@ nnoremap <leader>av ggVG
 nnoremap <leader>ev :vsplit $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
 nnoremap <leader>sp :setlocal spell spelllang=en_au<cr>
+nnoremap <leader>ct :!ctags -R .<cr>
 nnoremap <leader>nt :NERDTree<cr>
 
 inoremap jk <esc>
@@ -53,7 +54,7 @@ fun! <SID>StripTrailingWhitespaces()
     call cursor(l, c)
 endfun
 
-autocmd FileType c,cpp,java,php,ruby,python,coffee,js autocmd BufWritePre <buffer> :call <SID>StripTrailingWhitespaces()
+autocmd FileType c,cpp,java,php,ruby,python,coffee,js,clojure autocmd BufWritePre <buffer> :call <SID>StripTrailingWhitespaces()
 
 " Vundle
 filetype off    
@@ -65,6 +66,8 @@ Bundle 'wincent/Command-T'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'kchmck/vim-coffee-script'
 Bundle 'klen/python-mode'
+Bundle 'guns/vim-clojure-static'
+Bundle 'tpope/vim-fireplace'
 filetype plugin indent on
 
 

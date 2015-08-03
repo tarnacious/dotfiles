@@ -1,5 +1,5 @@
 [general]
-accounts = Retresco, Private, Gmail
+accounts = Private
 pythonfile=~/.mutt/offlineimap.py
 
 [Account Retresco]
@@ -28,6 +28,8 @@ localfolders = ~/Mail/gmail
 
 [Repository RemotePrivate]
 type = IMAP
+ssl = yes
+sslcacertfile = /Users/tarn/.mutt/ca-bundle.crt
 remotehost = tarnbarford.net
 remoteuser = tarn
 remotepasseval = get_keychain_pass(account="tarn@tarnbarford.net", server="tarnbarford.net")
