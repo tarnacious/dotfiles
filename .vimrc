@@ -58,8 +58,8 @@ autocmd FileType c,cpp,java,php,ruby,python,coffee,js,clojure autocmd BufWritePr
 
 " Vundle
 filetype off    
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+set rtp+=~/.vim/bundle/Vundle.vim/
+call vundle#begin()
 Bundle 'gmarik/vundle'
 Bundle 'scrooloose/nerdtree'
 Bundle 'wincent/Command-T'

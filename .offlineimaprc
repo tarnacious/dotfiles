@@ -1,53 +1,20 @@
 [general]
 accounts = Private
-pythonfile=~/.mutt/offlineimap.py
-
-[Account Retresco]
-localrepository = Local
-remoterepository = Remote
+pythonfile=~/.mutt/offlineimap-pass.py
 
 [Account Private]
 localrepository = LocalPrivate
 remoterepository = RemotePrivate
-
-[Account Gmail]
-localrepository = Gmail-Local
-remoterepository = Gmail-Remote
+status_backend = sqlite
 
 [Repository LocalPrivate]
 type = Maildir
 localfolders = ~/Mail/private
 
-[Repository Local]
-type = Maildir
-localfolders = ~/Mail/retresco
-
-[Repository Gmail-Local]
-type = Maildir
-localfolders = ~/Mail/gmail
-
 [Repository RemotePrivate]
 type = IMAP
-ssl = yes
-sslcacertfile = /Users/tarn/.mutt/ca-bundle.crt
 remotehost = tarnbarford.net
 remoteuser = tarn
-remotepasseval = get_keychain_pass(account="tarn@tarnbarford.net", server="tarnbarford.net")
-
-[Repository Remote]
-type = IMAP
-remotehost = imap.1und1.de
-remoteuser = tarn.barford@retresco.de
-remotepasseval = get_keychain_pass(account="tarn.barford@retresco.de", server="imap.1und1.de")
-
-[Repository Gmail-Remote]
-cert_fingerprint = 89091347184d41768bfc0da9fad94bfe882dd358
-folderfilter = filter_remote_gmail
-maxconnections = 1
-nametrans = trans_remote_gmail
-realdelete = no
-remotepasseval = get_keychain_pass(account="tarn.barford@gmail.com", server="imap.gmail.com")
-remoteuser = tarn.barford@gmail.com
+remotepasseval = get_pass("private")
 ssl = yes
-type = Gmail
-
+cert_fingerprint = 26ac691e1eaafd4bea824adc537243d9bce4c9e4
