@@ -1,10 +1,11 @@
 set nocompatible
+
 filetype plugin on
 syntax on
 filetype indent on
 syntax enable
 
-set wildmenu 
+set wildmenu
 set hid
 set showmatch
 
@@ -56,7 +57,6 @@ endfun
 
 autocmd FileType c,cpp,java,php,ruby,python,coffee,js,clojure autocmd BufWritePre <buffer> :call <SID>StripTrailingWhitespaces()
 
-" Vundle
 filetype off    
 set rtp+=~/.vim/bundle/Vundle.vim/
 call vundle#rc()

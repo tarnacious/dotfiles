@@ -1,11 +1,21 @@
 [general]
-accounts = Private
+accounts = Private, Seedad
 pythonfile=~/.mutt/offlineimap-pass.py
 
 [Account Private]
 localrepository = LocalPrivate
 remoterepository = RemotePrivate
 status_backend = sqlite
+
+
+[Account Seedad]
+localrepository = LocalSeedad
+remoterepository = RemoteSeedad
+status_backend = sqlite
+
+[Repository LocalSeedad]
+type = Maildir
+localfolders = ~/Mail/seedad
 
 [Repository LocalPrivate]
 type = Maildir
@@ -18,3 +28,11 @@ remoteuser = tarn
 remotepasseval = get_pass("private")
 ssl = yes
 cert_fingerprint = 26ac691e1eaafd4bea824adc537243d9bce4c9e4
+
+[Repository RemoteSeedad]
+type = IMAP
+remotehost = vwp4487.webpack.hosteurope.de
+remoteuser = wp1183642-seedad_barford
+remotepasseval = get_pass("seedad")
+#ssl = yes
+#cert_fingerprint = 26ac691e1eaafd4bea824adc537243d9bce4c9e4
