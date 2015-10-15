@@ -59,7 +59,7 @@ autocmd FileType c,cpp,java,php,ruby,python,coffee,js,clojure autocmd BufWritePr
 " Vundle
 filetype off    
 set rtp+=~/.vim/bundle/Vundle.vim/
-call vundle#begin()
+call vundle#rc()
 Bundle 'gmarik/vundle'
 Bundle 'scrooloose/nerdtree'
 Bundle 'wincent/Command-T'
@@ -72,6 +72,6 @@ filetype plugin indent on
 
 
 set background=dark
-colorscheme solarized
+" colorscheme solarized
 
 let NERDTreeIgnore = ['\.pyc$', '\.so$', '\.swp$']

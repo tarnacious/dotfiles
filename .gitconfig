@@ -4,9 +4,9 @@
 [color]
 	ui = true
 [user]
-	name = Tarn Barford
+	name = tarnacious
 	email = tarn@tarnbarford.net
 [push]
 	default = simple
 [core]
-	excludesfile = /Users/tarn/.gitignore.global
+	excludesfile = /home/dev/.gitignore.global
