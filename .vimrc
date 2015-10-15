@@ -1,10 +1,26 @@
 set nocompatible
+
+
+" Vundle
+filetype off
+set rtp+=~/.vim/bundle/Vundle.vim/
+call vundle#rc()
+Bundle 'gmarik/vundle'
+Bundle 'scrooloose/nerdtree'
+Bundle 'wincent/Command-T'
+Bundle 'altercation/vim-colors-solarized'
+Bundle 'kchmck/vim-coffee-script'
+Bundle 'klen/python-mode'
+Bundle 'guns/vim-clojure-static'
+Bundle 'tpope/vim-fireplace'
+filetype plugin indent on
+
 filetype plugin on
 syntax on
 filetype indent on
 syntax enable
 
-set wildmenu 
+set wildmenu
 set hid
 set showmatch
 
@@ -56,22 +72,9 @@ endfun
 
 autocmd FileType c,cpp,java,php,ruby,python,coffee,js,clojure autocmd BufWritePre <buffer> :call <SID>StripTrailingWhitespaces()
 
-" Vundle
-filetype off    
-set rtp+=~/.vim/bundle/Vundle.vim/
-call vundle#begin()
-Bundle 'gmarik/vundle'
-Bundle 'scrooloose/nerdtree'
-Bundle 'wincent/Command-T'
-Bundle 'altercation/vim-colors-solarized'
-Bundle 'kchmck/vim-coffee-script'
-Bundle 'klen/python-mode'
-Bundle 'guns/vim-clojure-static'
-Bundle 'tpope/vim-fireplace'
-filetype plugin indent on
 
 
 set background=dark
-colorscheme solarized
+" colorscheme solarized
 
 let NERDTreeIgnore = ['\.pyc$', '\.so$', '\.swp$']

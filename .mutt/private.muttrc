@@ -1,5 +1,5 @@
 set from      = "tarn@tarnbarford.net"
-set sendmail  = "/usr/local/bin/msmtp -a private"
+set sendmail  = "msmtp -a private"
 set mbox      = "+private/archive"
 set postponed = "+private/INBOX.drafts"
 set record    = "+private/sent"
