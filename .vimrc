@@ -75,3 +75,9 @@ set background=dark
 " colorscheme solarized
 
 let NERDTreeIgnore = ['\.pyc$', '\.so$', '\.swp$']
+
+" opens search results in a window w/ links and highlight the matches
+command! -nargs=+ Grep execute 'silent grep! -I -r -n --exclude *.{swp,pyc} . -e <args>' | copen | execute 'silent /<args>'
+
+" shift-control-* Greps for the word under the cursor
+nmap <leader>g :Grep <c-r>=expand("<cword>")<cr><cr>
