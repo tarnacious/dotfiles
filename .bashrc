@@ -1,3 +1,6 @@
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+export PGHOST=localhost
+
 # Append current git branch in prompt
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
