@@ -1,7 +1,10 @@
 *.swo
 *.swn
 *.sw*
+*.sv[^g]
 *.swp
 *.pyc
 .ropeproject
 pip-selfcheck.json
+bot/lib
+bot/certificates
