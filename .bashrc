@@ -20,6 +20,7 @@ parse_git_branch() {
 
 PS1="${debian_chroot:+($debian_chroot)}\[\033[01;36m\]\u@\h\[\033[00m\]:\[\033[01;32m\]\w\[\033[00m\]\[\033[01;31m\]\$(parse_git_branch)\[\033[00m\]$ "
 
+<<<<<<< HEAD
 export XAUTHORITY=~/.Xauthority
 export EDITOR=vim
 
@@ -36,3 +37,6 @@ export NVM_DIR="/home/dev/.nvm"
 
 export CHROME_BIN=/usr/bin/chromium 
 
+
+eval "$(rbenv init -)"
+source /usr/share/nvm/init-nvm.sh
