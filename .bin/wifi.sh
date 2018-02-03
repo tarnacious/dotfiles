@@ -6,6 +6,7 @@ iwconfig eth2 2>&1 | grep -q no\ wireless\ extensions\. && {
 }
 
 essid=`nmcli -t -f active,ssid dev wifi | egrep '^yes' | cut -d\' -f2`
+name=${essid:4}
 stngth=`nmcli -t -f active,ssid,signal dev wifi|grep yes|cut -d':' -f3`
 bars=`expr $stngth / 10`
 
@@ -24,6 +25,6 @@ case $bars in
   *)  bar='[----!!----]' ;;
 esac
 
-echo $essid $bar
+echo $name $bar
 
 exit 0
