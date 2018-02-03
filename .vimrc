@@ -18,8 +18,8 @@ set tm=500
 " don't confuse webpack reloader
 set backupcopy=yes
 
-set tabstop=4
-set shiftwidth=4
+set tabstop=2
+set shiftwidth=2
 set expandtab
 set nu
 
@@ -78,7 +78,6 @@ autocmd FileType c,cpp,java,php,ruby,python,coffee,js,javascript,clojure,ld,s,ht
 autocmd Filetype scss setlocal ts=2 sts=2 sw=2
 
 call plug#begin('~/.vim/plugged')
-" Bundle 'gmarik/vundle'
 Plug 'scrooloose/nerdtree'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
@@ -86,18 +85,10 @@ Plug 'w0rp/ale'
 Plug 'mileszs/ack.vim'
 Plug 'tpope/vim-surround'
 Plug 'altercation/vim-colors-solarized'
-" Bundle 'kchmck/vim-coffee-script'
-" Bundle 'klen/python-mode'
-" Bundle 'guns/vim-clojure-static'
-" Bundle 'tpope/vim-fireplace'
-" Bundle 'tpope/vim-fugitive'
-" Bundle 'rust-lang/rust.vim'
-" Bundle 'wookiehangover/jshint.vim'
+Plug 'vim-ruby/vim-ruby'
 call plug#end()
 
 let g:ale_fixers = {'javascript': ['prettier_standard']}
-"let g:ale_linters = {'javascript': ['']}
-
 
 filetype plugin indent on
 syntax on
@@ -116,8 +107,4 @@ let NERDTreeIgnore = ['\.pyc$', '\.so$', '\.swp$']
 nnoremap <Leader>Q :%s/=\(\x\x\<BAR>\n\)/\=submatch(1)=='\n'?'':nr2char('0x'.submatch(1))/ge<CR>
 vnoremap <Leader>Q :s/=\(\x\x\<BAR>\n\)/\=submatch(1)=='\n'?'':nr2char('0x'.submatch(1))/ge<CR>
 
-" opens search results in a window w/ links and highlight the matches
-command! -nargs=+ Grep execute 'silent grep! -I -r -n --exclude *.{swp,pyc} . -e <args>' | copen | execute 'silent /<args>'
-
-command! -nargs=+ Gfind execute 'silent Ggrep!' <q-args> | cw | redraw!
 map <leader>jr :set makeprg=rubocop <CR>:make % %:r<CR>:copen<CR>
