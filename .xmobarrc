@@ -16,7 +16,7 @@ Config { font = "xft:Terminus"
        , allDesktops = True
        , overrideRedirect = True
        , commands = [ Run Com "/home/tarn/.bin/wifi.sh" [] "wifi" 30
-		    , Run Com "/home/tarn/.bin/volume.sh" [] "sound" 30
+		    , Run Com "/home/tarn/.bin/volume.sh" [] "sound" 10
                     , Run Cpu ["-L","3","-H","50", "--normal","green","--high","red"] 10
                     , Run Memory ["-t","Mem: <usedratio>%"] 10
     		    , Run Date "%a %b %_d %Y %H:%M:%S" "date" 10
@@ -26,8 +26,8 @@ Config { font = "xft:Terminus"
                                   , "--low"      , "darkred"
                                   , "--normal"   , "darkorange"
                                   , "--high"     , "darkgreen"
-                                  , "--" -- battery specific options
-                                  -- discharging status
+			  , "--" -- battery specific options
+			  -- discharging status
                                   , "-o"	, "<left>% (<timeleft>)"
                                   -- AC "on" status
                                   , "-O"	, "<fc=#dAA520>Charging</fc>"
