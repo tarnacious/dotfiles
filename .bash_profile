@@ -1,13 +1,8 @@
-PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
-PATH=$PATH:$HOME/.bin # Add RVM to PATH for scripting
+PATH=$PATH:$HOME/.bin 
 
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
-
-export PATH=$PATH:/home/dev/x-tools/arm-unknown-linux-gnueabi/bin
 export PGHOST=localhost
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
-export _JAVA_AWT_WM_NONREPARENTING=1
 
 parse_git_branch() {
   if ! git rev-parse --git-dir > /dev/null 2>&1; then
@@ -21,7 +16,6 @@ PS1="${debian_chroot:+($debian_chroot)}\[\033[01;36m\]\u@\h\[\033[00m\]:\[\033[0
 
 export XAUTHORITY=~/.Xauthority
 export EDITOR=vim
-
 
 alias svg="feh --magick-timeout 1"
 alias pdf="apvlv"
