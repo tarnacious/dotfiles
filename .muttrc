@@ -5,7 +5,6 @@ set mailcap_path     = ~/.mutt/mailcap
 
 set sidebar_visible = yes
 set sidebar_width = 30 # width of sidebar
-set sidebar_delim = '|' # sidebar delimiter
 color sidebar_new yellow default
 
 mailboxes +private/INBOX \
@@ -44,6 +43,7 @@ macro index,pager <left> '<enter-command>toggle sidebar_visible<enter>'
 bind pager k  previous-line
 bind pager j  next-line
 
+bind index g noop
 bind index gg       first-entry
 bind index G        last-entry
 bind index R        group-reply
