@@ -33,4 +33,5 @@ fi
 # Use gnome
 # exec dbus-launch --exit-with-session gnome-session
 
+xbindkeys
 exec xmonad
