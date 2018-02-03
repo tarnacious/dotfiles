@@ -1,4 +1,4 @@
-Config { font = "-misc-fixed-*-*-*-*-10-*-*-*-*-*-*-*"
+Config { font = "xft:Terminus"
        , additionalFonts = []
        , borderColor = "black"
        , border = TopB
@@ -49,6 +49,6 @@ Config { font = "-misc-fixed-*-*-*-*-10-*-*-*-*-*-*-*"
                     ]
        , sepChar = "%"
        , alignSep = "}{"
-       , template = "%cpu% | %memory% * %swap% | %wifi% }\
+       , template = "%cpu% | %memory% | %wifi% }\
                     \{ <fc=#ee9a00>%date%</fc>| %battery%"
        }
