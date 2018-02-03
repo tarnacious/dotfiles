@@ -1,5 +1,0 @@
-set from      = "tarn.barford@retresco.de"
-set sendmail  = "/usr/local/bin/msmtp -a retresco"
-set mbox      = "+retresco/archive"
-set record    = "+retresco/sent"
-set postponed = "+retresco/drafts"

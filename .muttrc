@@ -16,23 +16,17 @@ mailboxes +private/INBOX \
           +seedad/sent \
           +seedad/archive \
           +seedad/drafts \
-          +retresco/INBOX \
-          +retresco/sent \
-          +retresco/archive \
-          +retresco/drafts \
-          +private/sent \
-          +private/archive \
-          +private/drafts \
-          +gmail/INBOX \
-          +gmail/sent \
-          +gmail/all \
+          +debugproxy/INBOX \
+          +debugproxy/sent \
+          +debugproxy/archive \
+          +debugproxy/drafts \
 
 auto_view text/html
 macro index,pager ,r ":unset wait_key; set pipe_decode\n|mutt_add_reminder\n:set wait_key; unset pipe_decode\n" "record a reminder"
 
 bind attach <return> view-mailcap
 
-folder-hook retresco/* source ~/.mutt/retresco.muttrc
+folder-hook debugproxy/* source ~/.mutt/debugproxy.muttrc
 folder-hook seedad/* source ~/.mutt/seedad.muttrc
 folder-hook private/* source ~/.mutt/private.muttrc
 

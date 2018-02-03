@@ -1,17 +1,18 @@
 [general]
-accounts = Private, Seedad
+accounts = Private, Seedad, debugproxy
 pythonfile=~/.mutt/offlineimap-pass.py
 
 [Account Private]
 localrepository = LocalPrivate
 remoterepository = RemotePrivate
-status_backend = sqlite
-
 
 [Account Seedad]
 localrepository = LocalSeedad
 remoterepository = RemoteSeedad
-status_backend = sqlite
+
+[Account debugproxy]
+localrepository = LocalDebugProxy
+remoterepository = RemoteDebugProxy
 
 [Repository LocalSeedad]
 type = Maildir
@@ -21,18 +22,31 @@ localfolders = ~/Mail/seedad
 type = Maildir
 localfolders = ~/Mail/private
 
+[Repository LocalDebugProxy]
+type = Maildir
+localfolders = ~/Mail/debugproxy
+
 [Repository RemotePrivate]
 type = IMAP
 remotehost = tarnbarford.net
 remoteuser = tarn
 remotepasseval = get_pass("private")
 ssl = yes
-cert_fingerprint = 26ac691e1eaafd4bea824adc537243d9bce4c9e4
+cert_fingerprint = 0fa9f648061a2b96db7bce22aadffde4341051a8
 
 [Repository RemoteSeedad]
 type = IMAP
 remotehost = vwp4487.webpack.hosteurope.de
 remoteuser = wp1183642-seedad_barford
 remotepasseval = get_pass("seedad")
-#ssl = yes
-#cert_fingerprint = 26ac691e1eaafd4bea824adc537243d9bce4c9e4
+ssl = yes
+cert_fingerprint = 03e9f403c0121a6c4148ea78f6573e48df965d7e
+
+
+[Repository RemoteDebugProxy]
+type = IMAP
+remotehost = mail.debugproxy.com
+remoteuser = hello
+remotepasseval = get_pass("debugproxy")
+ssl = yes
+cert_fingerprint = 0fa9f648061a2b96db7bce22aadffde4341051a8

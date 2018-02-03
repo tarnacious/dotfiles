@@ -1,0 +1,5 @@
+set from      = "hello@debugproxy.com"
+set sendmail  = "/usr/local/bin/msmtp -a debugproxy"
+set mbox      = "+debugproxy/archive"
+set record    = "+debugproxy/sent"
+set postponed = "+debugproxy/drafts"
