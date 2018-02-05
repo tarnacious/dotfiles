@@ -33,6 +33,7 @@ fi
 # Use gnome
 # exec dbus-launch --exit-with-session gnome-session
 
+eval $(/usr/bin/gnome-keyring-daemon --start --components=pkcs11,secrets)
 
 # two finger left click
 xinput set-prop "DLL082A:01 06CB:76AF Touchpad" "libinput Click Method Enabled" 0 1
