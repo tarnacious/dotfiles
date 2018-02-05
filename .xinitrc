@@ -33,5 +33,9 @@ fi
 # Use gnome
 # exec dbus-launch --exit-with-session gnome-session
 
+
+# two finger left click
+xinput set-prop "DLL082A:01 06CB:76AF Touchpad" "libinput Click Method Enabled" 0 1
+
 xbindkeys
 exec xmonad
