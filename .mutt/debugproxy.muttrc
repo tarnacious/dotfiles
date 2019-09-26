@@ -1,5 +1,8 @@
 set from      = "hello@debugproxy.com"
-set sendmail  = "/usr/local/bin/msmtp -a debugproxy"
-set mbox      = "+debugproxy/archive"
-set record    = "+debugproxy/sent"
-set postponed = "+debugproxy/drafts"
+set sendmail  = "msmtp -a hello_debugproxy"
+set mbox      = "+hello_debugproxy/archive"
+set postponed = "+hello_debugproxy/INBOX.drafts"
+set record    = "+hello_debugproxy/sent"
+
+macro index A ":set confirmappend=no delete=yes\n<tag-prefix><save-message>=debugproxy/archive\n<sync-mailbox>:set confirmappend=yes delete=ask-yes\n"
+macro index X ":set confirmappend=no delete=yes\n<tag-prefix><save-message>=debugproxy/Spam\n<sync-mailbox>:set confirmappend=yes delete=ask-yes\n"

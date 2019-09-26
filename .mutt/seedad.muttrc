@@ -1,5 +1,0 @@
-set from      = "barford@seedad.de"
-set sendmail  = "msmtp -a seedad"
-set mbox      = "+seedad/archive"
-set postponed = "+seedad/INBOX.drafts"
-set record    = "+seedad/sent"

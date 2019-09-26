@@ -1,24 +1,24 @@
 set mbox_type = Maildir
 set folder = ~/Mail; set record="+sent"; set mbox="+mbox"; set postponed="+postponed"
-set spoolfile       = "+private/INBOX"
+set spoolfile       = "+tarnbarford/INBOX"
 set mailcap_path     = ~/.mutt/mailcap
 
 set sidebar_visible = yes
 set sidebar_width = 30 # width of sidebar
 color sidebar_new yellow default
 
-mailboxes +private/INBOX \
-          +private/sent \
-          +private/archive \
-          +private/drafts \
-          +seedad/INBOX \
-          +seedad/sent \
-          +seedad/archive \
-          +seedad/drafts \
+mailboxes +tarnbarford/INBOX \
+          +tarnbarford/sent \
+          +tarnbarford/archive \
+          +tarnbarford/notifications \
+          +tarnbarford/brainsome \
+          +tarnbarford/Spam \
           +debugproxy/INBOX \
           +debugproxy/sent \
           +debugproxy/archive \
           +debugproxy/drafts \
+          +debugproxy/Spam \
+          
 
 auto_view text/html
 macro index,pager ,r ":unset wait_key; set pipe_decode\n|mutt_add_reminder\n:set wait_key; unset pipe_decode\n" "record a reminder"
@@ -26,19 +26,23 @@ macro index,pager ,r ":unset wait_key; set pipe_decode\n|mutt_add_reminder\n:set
 bind attach <return> view-mailcap
 
 folder-hook debugproxy/* source ~/.mutt/debugproxy.muttrc
-folder-hook seedad/* source ~/.mutt/seedad.muttrc
-folder-hook private/* source ~/.mutt/private.muttrc
+folder-hook tarnbarford/* source ~/.mutt/tarnbarford.muttrc
 
 set sort = threads
 set sort_aux = reverse-last-date-received
 
 macro index O "<shell-escape>offlineimap<enter>"           "run offlineimap to sync all mail"
 
+
 macro index \Cr "T~U<enter><tag-prefix><clear-flag>N<untag-pattern>.<enter>" "mark all messages as read"
 bind index,pager <down>   sidebar-next
 bind index,pager <up>     sidebar-prev
 bind index,pager <right>  sidebar-open
 macro index,pager <left> '<enter-command>toggle sidebar_visible<enter>'
+
+macro index Z \
+    "<tag-pattern>~N<enter><tag-prefix><clear-flag>N<untag-pattern>.<enter>" \
+    "mark all new as read"
 
 bind pager k  previous-line
 bind pager j  next-line
