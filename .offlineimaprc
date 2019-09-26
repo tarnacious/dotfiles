@@ -1,52 +1,35 @@
 [general]
-accounts = Private, Seedad, debugproxy
+accounts = tarnbarford, debugproxy
 pythonfile=~/.mutt/offlineimap-pass.py
 
-[Account Private]
-localrepository = LocalPrivate
-remoterepository = RemotePrivate
-
-[Account Seedad]
-localrepository = LocalSeedad
-remoterepository = RemoteSeedad
+[Account tarnbarford]
+localrepository = LocalTarnBarford
+remoterepository = RemoteTarnBarford
 
 [Account debugproxy]
 localrepository = LocalDebugProxy
 remoterepository = RemoteDebugProxy
 
-[Repository LocalSeedad]
+[Repository LocalTarnBarford]
 type = Maildir
-localfolders = ~/Mail/seedad
-
-[Repository LocalPrivate]
-type = Maildir
-localfolders = ~/Mail/private
+localfolders = ~/Mail/tarnbarford
 
 [Repository LocalDebugProxy]
 type = Maildir
 localfolders = ~/Mail/debugproxy
 
-[Repository RemotePrivate]
+[Repository RemoteTarnBarford]
 type = IMAP
-remotehost = tarnbarford.net
-remoteuser = tarn
-remotepasseval = get_pass("private")
+remotehost = mail.tarnbarford.net
+remoteuser = tarn@tarnbarford.net
+remotepasseval = get_pass("tarn@tarnbarford.net")
 ssl = yes
-cert_fingerprint = 0fa9f648061a2b96db7bce22aadffde4341051a8
-
-[Repository RemoteSeedad]
-type = IMAP
-remotehost = vwp4487.webpack.hosteurope.de
-remoteuser = wp1183642-seedad_barford
-remotepasseval = get_pass("seedad")
-ssl = yes
-cert_fingerprint = 03e9f403c0121a6c4148ea78f6573e48df965d7e
-
+sslcacertfile = /etc/ssl/certs/ca-certificates.crt
 
 [Repository RemoteDebugProxy]
 type = IMAP
-remotehost = mail.debugproxy.com
-remoteuser = hello
-remotepasseval = get_pass("debugproxy")
+remotehost = mail.tarnbarford.net
+remoteuser = hello@debugproxy.com
+remotepasseval = get_pass("hello@debugproxy.com")
 ssl = yes
-cert_fingerprint = 0fa9f648061a2b96db7bce22aadffde4341051a8
+sslcacertfile = /etc/ssl/certs/ca-certificates.crt
