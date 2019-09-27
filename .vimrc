@@ -74,6 +74,7 @@ fun! <SID>StripTrailingWhitespaces()
 endfun
 
 autocmd FileType c,cpp,java,php,ruby,python,coffee,js,javascript,clojure,ld,s,html autocmd BufWritePre <buffer> :call <SID>StripTrailingWhitespaces()
+autocmd FileType ruby setlocal expandtab shiftwidth=2 tabstop=2 softtabstop=2
 
 autocmd Filetype scss setlocal ts=2 sts=2 sw=2
 
@@ -86,6 +87,9 @@ Plug 'mileszs/ack.vim'
 Plug 'tpope/vim-surround'
 Plug 'altercation/vim-colors-solarized'
 Plug 'vim-ruby/vim-ruby'
+Plug 'rodjek/vim-puppet'
+Plug 'davewongillies/vim-eyaml'
+
 call plug#end()
 
 let g:ale_fixers = {'javascript': ['prettier_standard']}
