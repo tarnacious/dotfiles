@@ -1,4 +1,4 @@
-export PATH=$PATH:$HOME/.bin 
+export PATH=$PATH:$HOME/.bin
 export PGHOST=localhost
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
@@ -6,7 +6,7 @@ export EDITOR=vim
 export NVM_DIR="/home/dev/.nvm"
 export DISPLAY=:0
 export HISTCONTROL=ignoredups
-export CHROME_BIN=/usr/bin/chromium 
+export CHROME_BIN=/usr/bin/chromium
 
 alias svg="feh --magick-timeout 1"
 alias pdf="apvlv"
@@ -25,9 +25,27 @@ parse_git_branch() {
 
 PS1="${debian_chroot:+($debian_chroot)}\[\033[01;36m\]\u@\h\[\033[00m\]:\[\033[01;32m\]\w\[\033[00m\]\[\033[01;31m\]\$(parse_git_branch)\[\033[00m\]$ "
 
-eval "$(rbenv init -)"
-source /usr/share/nvm/init-nvm.sh
-source ~/.fzf.bash
+if [ -d "$HOME/.rbenv" ]; then
+  echo "configuring rbenv"
+  export PATH="$HOME/.rbenv/bin:$PATH"
+  eval "$(rbenv init -)"
+else
+  echo "rbenv not installed"
+fi
+
+if [ -f "/usr/share/nvm/init-nvm.sh" ]; then
+  echo "configuring nvm"
+  source /usr/share/nvm/init-nvm.sh
+else
+  echo "nvm not installed"
+fi
+
+if [ -f "$HOME/.fzf.bash" ]; then
+  echo "configuring fzf"
+  source ~/.fzf.bash
+else
+  echo "fzf not installed"
+fi
 
 unset SSH_AGENT_PID
 if [ "${gnupg_SSH_AUTH_SOCK_by:-0}" -ne $$ ]; then
