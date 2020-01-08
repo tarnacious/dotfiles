@@ -47,9 +47,14 @@ else
   echo "fzf not installed"
 fi
 
-unset SSH_AGENT_PID
-if [ "${gnupg_SSH_AUTH_SOCK_by:-0}" -ne $$ ]; then
-export SSH_AUTH_SOCK="$(gpgconf --list-dirs agent-ssh-socket)"
+if [ -n "$SSH_AUTH_SOCK" ]; then
+  echo "assuming ssh agent is forwarded"
+else
+  echo "using gpg ssh agent"
+  unset SSH_AGENT_PID
+  if [ "${gnupg_SSH_AUTH_SOCK_by:-0}" -ne $$ ]; then
+    export SSH_AUTH_SOCK="$(gpgconf --list-dirs agent-ssh-socket)"
+  fi
 fi
 
 #eval `ssh-agent -s`
