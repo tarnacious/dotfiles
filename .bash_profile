@@ -58,3 +58,8 @@ else
 fi
 
 #eval `ssh-agent -s`
+
+
+for f in ~/.profiles/*; do
+   . $f
+done
